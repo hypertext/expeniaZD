@@ -48,9 +48,8 @@ class expenia{
 		$this->lang = $lang;
 	}
 	
-	public static function security($var)
-    {
-        $var = trim(mysql_real_escape_string($var));
+	public function security($var){
+        $var = trim($this->db->real_escape_string($var));
         
         if(get_magic_quotes_gpc()){
             $var = stripslashes($var);
@@ -61,10 +60,10 @@ class expenia{
 	
 	public function add_message($name, $email, $captcha, $message){
 		
-		$name = self::security($name);
-		$email = self::security($email);
+		$name = $this->security($name);
+		$email = $this->security($email);
 		$message = nl2br($message);
-		$message = mysql_real_escape_string($message);
+		$message = $this->real_escape_string($message);
 		
 		$timestamp = time();
 		

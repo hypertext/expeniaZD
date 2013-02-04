@@ -54,7 +54,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 	if(isset($_GET['cevapla'])){
 		if(isset($_SESSION['id'])){
 			$id = intval($_POST['m_id']);
-			$response = nl2br($zd::security($_POST['response']));
+			$response = nl2br($zd->security($_POST['response']));
 			if(!empty($response)){
 				if($zd->db->query("INSERT INTO messages (message, parent_id) VALUES ('$response', '$id')")){
 					echo 'OK';

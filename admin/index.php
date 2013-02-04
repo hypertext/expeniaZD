@@ -186,7 +186,8 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 			curl_setopt($ch, CURLOPT_USERAGENT, $user_agent);
 			$icerik = curl_exec($ch);
 			curl_close($ch);
-			echo $icerik;
+			$icerik = explode('<!-- Hosting24 Analytics Code -->', $icerik);
+			echo $icerik[0];
 			
 		}elseif(isset($_GET['logout'])){
 			echo 'logout';

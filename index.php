@@ -21,8 +21,11 @@
 
 include_once "libs/config.inc.php";
 
+if(!$zd->db){ header("location: ".$_SERVER['REQUEST_URI']."install/index.php"); }
 // get all messages
 $data = $zd->get_messages();
+
+
 
 // include theme file
 include_once "themes/" . $zd->settings->theme . "/index.php";
