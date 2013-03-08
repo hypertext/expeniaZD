@@ -54,6 +54,7 @@ class expenia{
         if(get_magic_quotes_gpc()){
             $var = stripslashes($var);
         }
+		$var = strip_tags($var);
         
         return $var;
     }
@@ -140,7 +141,7 @@ class expenia{
         if($_SESSION['loggedIn'] == 1){
             $sql = "SELECT * FROM messages ORDER BY id DESC";
         }else{ // giriş yapmamışsa sadece onaylanmış mesajları alıyoruz
-            $sql = "SELECT * FROM messages WHERE parent_id = '0' ORDER BY id DESC";
+            $sql = "SELECT * FROM messages WHERE parent_id = '0' AND approval = '1' ORDER BY id DESC";
         }
 		
 		//adres çubuğuna yazılanı çekiyor kontrol ediyoruz
