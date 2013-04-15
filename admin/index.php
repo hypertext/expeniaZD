@@ -50,7 +50,7 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 		</ul>
 	</div>
 	<div class="content-right">
-		<?
+		<?php
 		if(isset($_GET['settings'])){
 		$settings = $zd->getSettings();
 
@@ -81,8 +81,8 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 				<div class="control-group">
 					<label class="control-label" for="approval">Onay durumu:</label>
 					<div class="controls">
-						<label class="rad">Onaylı <input type="radio" name="approval" class="input" value="1" id="approval"<? if($approval == 1) echo ' checked'; ?>></label>
-						<label class="rad">Onaysız <input type="radio" name="approval" class="input" value="0" id="approval"<? if($approval == 0) echo ' checked'; ?>></label>
+						<label class="rad">Onaylı <input type="radio" name="approval" class="input" value="1" id="approval"<?php if($approval == 1) echo ' checked'; ?>></label>
+						<label class="rad">Onaysız <input type="radio" name="approval" class="input" value="0" id="approval"<?php if($approval == 0) echo ' checked'; ?>></label>
 					</div>
 				</div>
 				<div class="control-group">
@@ -130,7 +130,7 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 					<input type="submit" name="submit-settings" class="btn" value="Güncelle">
 				</div>
 			</form>
-		<?
+		<?php
 		}elseif(isset($_GET['admin'])){
 		$admin = $zd->get_admin_details();
 		
@@ -141,7 +141,7 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 		?>
 			<h2>Yönetici Bilgileri</h2>
 			<form action="" style="margin-top: 10px;" method="POST">
-			<?
+			<?php
 				if(isset($_POST['submit-admin'])){
 					$update = $zd->admin_update($username, $password, $email);
 					
@@ -173,7 +173,7 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 					<input type="submit" name="submit-admin" class="btn" value="Güncelle">
 				</div>
 			</form>
-		<?		
+		<?php
 		}elseif(isset($_GET['about'])){
 			echo '<h2>Hakkında</h2>';
 
@@ -202,7 +202,7 @@ include "../libs/config.inc.php"; if(empty($_SESSION['id'])){ header('location: 
 				
 				Yönetici panelinde ziyaretçi defterinin ayarlarını değiştirebilir, yönetici bilgilerini değiştirebilir ve ziyaretçi defteri hakkında bilgi alabilirsiniz.<br /><br /><br />
 			</p>
-			<?
+			<?php
 		}
 		?>
 	</div>

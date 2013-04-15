@@ -73,7 +73,7 @@
 			<div class="hk_mesaj">
 				<div class="hk_mesaj_header">
 					<span class="yazar"><?php echo $dat['name']; ?></span> <span><?php echo $zd->lang['WRITES']; ?></span>
-					<span style="padding-left: 50px"><? if(isset($_SESSION['id'])){ echo 'IP: '.$dat['ip']; } ?></span>
+					<span style="padding-left: 50px"><?php if(isset($_SESSION['id'])){ echo 'IP: '.$dat['ip']; } ?></span>
 					<span class="tarih" title="<?php echo $dat['time']; ?>"><?php echo $dat['date']; ?></span>
 				</div>
 				<div class="hk_mesaj_content">
@@ -94,7 +94,7 @@
 					}
 					?>                              
 				</div>
-				<?
+				<?php
 				if(isset($_SESSION['id'])){ 
 					echo '<div class="islemler">';
 					if($dat['approval'] == 0){

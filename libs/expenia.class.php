@@ -49,7 +49,7 @@ class expenia{
 	}
 	
 	public function security($var){
-        $var = trim($this->db->real_escape_string($var));
+        $var = trim(mysqli_real_escape_string($this->db, $var));
         
         if(get_magic_quotes_gpc()){
             $var = stripslashes($var);
@@ -64,7 +64,7 @@ class expenia{
 		$name = $this->security($name);
 		$email = $this->security($email);
 		$message = nl2br($message);
-		$message = $this->real_escape_string($message);
+		$message = mysqli_real_escape_string($this->db, $message);
 		
 		$timestamp = time();
 		
@@ -141,7 +141,7 @@ class expenia{
         if($_SESSION['loggedIn'] == 1){
             $sql = "SELECT * FROM messages ORDER BY id DESC";
         }else{ // giriş yapmamışsa sadece onaylanmış mesajları alıyoruz
-            $sql = "SELECT * FROM messages WHERE parent_id = '0' AND approval = '1' ORDER BY id DESC";
+            $sql = "SELECT * FROM messages WHERE parent_id = '0' ORDER BY id DESC";
         }
 		
 		//adres çubuğuna yazılanı çekiyor kontrol ediyoruz
