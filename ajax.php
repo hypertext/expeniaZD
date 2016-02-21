@@ -1,6 +1,6 @@
 <?php
 /**
- * Expenia Ziyaretçi Defteri Scripti v2.0     
+ * Expenia Ziyaretçi Defteri Scripti v2.0
  *
  * Expenia IT-Solutions tarafından ücretsiz dağıtılmakta olan bir ziyaretçi defteri scriptidir.
  * GNU Public License ile korunmakta olup altta olan linki kaldırmak yasaktır.
